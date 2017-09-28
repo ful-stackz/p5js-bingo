@@ -23,142 +23,159 @@
 <body>
 	<div class="container">
 		
-		<div class="row text-center">
+		<!-- Row 1 [Title] -->
+			<div class="row text-center">
 
-			<!-- <Title> -->
-				<div class="col-12 bg-bright-coral text-white">
-					<h1 class="display-4">Bingo!</h1>
-				</div>
-			<!-- </Title> -->
-		</div>
+				<!-- <Title> -->
+					<div class="col-12 bg-bright-coral text-white">
+						<h1 class="display-4">Bingo!</h1>
+					</div>
 
-		<div class="row text-center text-white">
-			<!-- <TimeInfo> -->
-				<div class="col-6 bg-sky py-2 d-flex align-items-center">
-					<p id="timeInfo" class="lead m-0 text-large w-100"></p>
-				</div>
-			<!-- </TimeInfo> -->
+			</div>
 
-			<!-- <LastPickedNumber> -->
-				<div class="col-3 bg-golden py-2">
-					<p id="lastPick" class="lead text-larger m-0">-</p>
-				</div>
-			<!-- </LastPickedNumber> -->
+		<!-- Row 2 [TimeInfo, LastPickedNumber, TotalPickedNumbers] -->
+			<div class="row text-center text-white">
 
-			<!-- <TotalPickedNumbers> -->
-				<div class="col-3 bg-aquamarine py-2">
-					<p id="totalPicks" class="lead text-larger m-0">1/20</p>
-				</div>
-			<!-- </TotalPickedNumbers> -->
-		</div>
+				<!-- <TimeInfo> -->
+					<div class="col-6 bg-sky py-2 d-flex align-items-center">
+						<p id="timeInfo" class="lead m-0 text-large w-100"></p>
+					</div>
 
-		<div class="row text-center text-white">
-			
-			<!-- <ControlsAndSettings> -->
-				<div id="controlsAndSettings" class="col-12 col-lg-3 py-2 bg-purple">
-					<div class="row text-center text-white">
-					
-					<!-- <Controls> -->
-						<div class="col-4 col-lg-12">
-						<h1 class="display-5">Controls</h1>
-						<hr class="bt-whitish" />
+				<!-- <LastPickedNumber> -->
+					<div class="col-3 bg-golden py-2">
+						<p id="lastPick" class="lead text-larger m-0">-</p>
+					</div>
 
-						<button class="btn btn-outline-light btn-large w-100 sharp-border mb-3 cursor-pointer" onclick="StartGame();">
-							Play
-						</button>
-						<button class="btn btn-outline-light btn-large w-100 sharp-border mb-0 cursor-pointer" onclick="gameRunning = false; gameStopped = true;">
-							Stop
-						</button>
-						</div>
+				<!-- <TotalPickedNumbers> -->
+					<div class="col-3 bg-aquamarine py-2">
+						<p id="totalPicks" class="lead text-larger m-0">-</p>
+					</div>
 
-					<!-- </Controls> -->
+			</div>
 
-					<br /><br />
-					
-					<!-- <Settings> -->
-						<h1 class="display-5">Settings</h1>
-						<hr class="bt-whitish" />
-
-						<!-- <TotalPicksSettings> -->
-							<p>How many total picks?</p>
-							<!-- Radio button 1 -->
-								<input type="radio" id="picksOption1" class="radio" name="picksOption" value="20" />
-								<label for="picksOption1">
-									<div class="radioBoxContainer cursor-pointer">
-										<span class="radioText">20</span>
-									</div>
-								</label>
-							<!-- Radio button 2 -->
-								<input type="radio" id="picksOption2" class="radio" name="picksOption" value="25" checked="true" />
-								<label for="picksOption2">
-									<div class="radioBoxContainer cursor-pointer">
-										<span class="radioText">25</span>
-									</div>
-								</label>
-							<!-- Radio button 3 -->
-								<input type="radio" id="picksOption3" class="radio" name="picksOption" value="30" />
-								<label for="picksOption3">
-									<div class="radioBoxContainer cursor-pointer">
-										<span class="radioText">30</span>
-									</div>
-								</label>
-						<!-- </TotalPicksSettings> -->
-
-						<!-- <PickingTimeSettings> -->
-							<p class="mt-2">How often to pick?</p>
-							<!-- Radio button 1 -->
-								<input type="radio" id="timeOption1" class="radio" name="timeOption" value="2.5" />
-								<label for="timeOption1">
-									<div class="radioBoxContainer cursor-pointer">
-										<span class="radioText">2.5</span>
-									</div>
-								</label>
-							<!-- Radio button 2 -->
-								<input type="radio" id="timeOption2" class="radio" name="timeOption" value="5" checked="true" />
-								<label for="timeOption2">
-									<div class="radioBoxContainer cursor-pointer">
-										<span class="radioText">5</span>
-									</div>
-								</label>
-							<!-- Radio button 3 -->
-								<input type="radio" id="timeOption3" class="radio" name="timeOption" value="7.5" />
-								<label for="timeOption3">
-									<div class="radioBoxContainer cursor-pointer">
-										<span class="radioText">7.5</span>
-									</div>
-								</label>
-						<!-- </PickingTimeSettings> -->
-
-					<!-- </Settings> -->
-
-
-					<!-- <Information> -->
-						<hr class="bt-whitish" />
-						<button class="btn btn-outline-light btn-large w-100 sharp-border mb-3 cursor-pointer" data-toggle="modal" data-target="#guideModal">
-							Guide
-						</button>
-						<button class="btn btn-outline-light btn-large w-100 sharp-border mb-2 cursor-pointer" data-toggle="modal" data-target="#creditsModal">
-							Credits
-						</button>
-					<!-- </Information> -->
-
-				</div>
-			<!-- </ControlsAndSettings> -->
-
-			<!-- <GameContainer> -->
-				<div id="canvasContainer" class="col-12 col-lg-6 p-0 bg-cool-gradient">
-					
-				</div>
-			<!-- </GameContainer> -->
-
-			<!-- <PickedNumbersList> -->
-				<div class="col-12 col-lg-3 bg-sky py-2">
-					<p id="pickedNumbers" class="lead text-larger m-0">
+		<!-- Row 3 [ControlsAndSettings, GameContainer, PickedNumbersList] -->
+			<div id="row3col1" class="row text-center text-white">
+				
+				<!-- <ControlsAndSettings> -->
+					<div id="controlsAndSettings" class="col-12 col-lg-3 py-2 bg-purple">
 						
-					</p>
-				</div>
-			<!-- </PickedNumbersList> -->
-		</div>
+						<!-- <Controls> -->
+							<h1 class="display-5">Controls</h1>
+							<hr class="bt-whitish" />
+
+							<button class="btn btn-outline-light btn-large w-100 sharp-border mb-3 cursor-pointer" onclick="StartGame();">
+								Play
+							</button>
+							<button class="btn btn-outline-light btn-large w-100 sharp-border mb-0 cursor-pointer" onclick="gameRunning = false; gameStopped = true;">
+								Stop
+							</button>
+
+						<br /><br />
+						
+						<!-- <Settings> -->
+							<h1 class="display-5">Settings</h1>
+							<hr class="bt-whitish" />
+
+							<!-- <TotalPicksSettings> -->
+								<p>How many total picks?</p>
+								<!-- Radio button 1 -->
+									<input type="radio" id="picksOption1" class="radio" name="picksOption" value="20" />
+									<label for="picksOption1">
+										<div class="radioBoxContainer cursor-pointer">
+											<span class="radioText">20</span>
+										</div>
+									</label>
+								<!-- Radio button 2 -->
+									<input type="radio" id="picksOption2" class="radio" name="picksOption" value="25" />
+									<label for="picksOption2">
+										<div class="radioBoxContainer cursor-pointer">
+											<span class="radioText">25</span>
+										</div>
+									</label>
+								<!-- Radio button 3 -->
+									<input type="radio" id="picksOption3" class="radio" name="picksOption" value="30" checked="true" />
+									<label for="picksOption3">
+										<div class="radioBoxContainer cursor-pointer">
+											<span class="radioText">30</span>
+										</div>
+									</label>
+								<!-- Radio button 4 -->
+									<input type="radio" id="picksOption4" class="radio" name="picksOption" value="40" />
+									<label for="picksOption4">
+										<div class="radioBoxContainer cursor-pointer">
+											<span class="radioText">40</span>
+										</div>
+									</label>
+								<!-- Radio button 5 -->
+									<input type="radio" id="picksOption5" class="radio" name="picksOption" value="50" />
+									<label for="picksOption5">
+										<div class="radioBoxContainer cursor-pointer">
+											<span class="radioText">50</span>
+										</div>
+									</label>
+
+							<!-- <PickingTimeSettings> -->
+								<p class="mt-2">How often to pick?</p>
+								<!-- Radio button 1 -->
+									<input type="radio" id="timeOption1" class="radio" name="timeOption" value="1" />
+									<label for="timeOption1">
+										<div class="radioBoxContainer cursor-pointer">
+											<span class="radioText">1</span>
+										</div>
+									</label>
+								<!-- Radio button 2 -->
+									<input type="radio" id="timeOption2" class="radio" name="timeOption" value="2" />
+									<label for="timeOption2">
+										<div class="radioBoxContainer cursor-pointer">
+											<span class="radioText">2</span>
+										</div>
+									</label>
+								<!-- Radio button 3 -->
+									<input type="radio" id="timeOption3" class="radio" name="timeOption" value="5" checked="true" />
+									<label for="timeOption3">
+										<div class="radioBoxContainer cursor-pointer">
+											<span class="radioText">5</span>
+										</div>
+									</label>
+								<!-- Radio button 4 -->
+									<input type="radio" id="timeOption4" class="radio" name="timeOption" value="7" />
+									<label for="timeOption4">
+										<div class="radioBoxContainer cursor-pointer">
+											<span class="radioText">7</span>
+										</div>
+									</label>
+								<!-- Radio button 5 -->
+									<input type="radio" id="timeOption5" class="radio" name="timeOption" value="8" />
+									<label for="timeOption5">
+										<div class="radioBoxContainer cursor-pointer">
+											<span class="radioText">8</span>
+										</div>
+									</label>
+
+						<!-- <Information> -->
+							<hr class="bt-whitish" />
+							<button class="btn btn-outline-light btn-large w-100 sharp-border mb-3 cursor-pointer" data-toggle="modal" data-target="#guideModal">
+								Guide
+							</button>
+							<button class="btn btn-outline-light btn-large w-100 sharp-border mb-2 cursor-pointer" data-toggle="modal" data-target="#creditsModal">
+								Credits
+							</button>
+
+					</div>
+
+				<!-- <GameContainer> -->
+					<div id="canvasContainer" class="col-12 col-lg-6 p-0 bg-cool-gradient">
+						
+					</div>
+
+				<!-- <PickedNumbersList> -->
+					<div id="row3col3" class="col-12 col-lg-3 bg-sky py-2" style="overflow-y: auto;">
+						<p id="pickedNumbers" class="lead text-larger m-0">
+							
+						</p>
+					</div>
+
+			</div>
 
 	</div>
 

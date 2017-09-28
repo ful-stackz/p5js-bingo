@@ -19,6 +19,8 @@ function CreateCanvas() {
 	canvas = createCanvas(canvasSize, canvasSize);
 	canvas.parent(canvasContainer);
 	fieldSize = (canvas.size().width - 0) / 5;
+
+	select("#row3col3").style("max-height", select("#row3col1").size().height + "px");
 }
 
 /* ResizeCanvas
@@ -56,8 +58,8 @@ function PickNumber() {
  * the value he/she chose
  */
 function UserOption_MaxPicks() {
-	var maxPicks = [select("#picksOption1"), select("#picksOption2"), select("#picksOption3")];
-	for (var i = 2; i >= 0; i--) {
+	var maxPicks = [select("#picksOption1"), select("#picksOption2"), select("#picksOption3"), select("#picksOption4"), select("#picksOption5")];
+	for (var i = maxPicks.length - 1; i >= 0; i--) {
 		if (maxPicks[i].elt.checked) return int(maxPicks[i].elt.value);
 	}
 }
@@ -67,8 +69,8 @@ function UserOption_MaxPicks() {
  * the value he/she chose
  */
 function UserOption_PickInterval() {
-	var pickIntervals = [select("#timeOption1"), select("#timeOption2"), select("#timeOption3")];
-	for (var i = 2; i >= 0; i--) {
+	var pickIntervals = [select("#timeOption1"), select("#timeOption2"), select("#timeOption3"), select("#timeOption4"), select("#timeOption5")];
+	for (var i = pickIntervals.length - 1; i >= 0; i--) {
 		if (pickIntervals[i].elt.checked) return int(pickIntervals[i].elt.value) * 1000;
 	}
 }

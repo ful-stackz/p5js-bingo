@@ -86,6 +86,7 @@ function draw() {
 	// Check for bingo and stop the game
 	if (gotBingo) {
 		DrawBingo();
+		gameStopped = true;
 		gameRunning = false;
 	}
 }
