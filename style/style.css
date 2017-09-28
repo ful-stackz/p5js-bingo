@@ -1,0 +1,104 @@
+.bg-bright-coral {
+	background-color: #f53240 !important;
+}
+
+.bg-aquamarine {
+	background-color: #02c8a7 !important;
+}
+
+.bg-golden {
+	background-color: #f9be02 !important;
+}
+
+.bg-sky {
+	background-color: #7cdbd5 !important;
+}
+
+.bg-cool-gradient {
+	background-image: url('../media/background-1.png');
+	background-size: contain;
+}
+
+.text-sky {
+	color: #7cdbd5 !important;
+}
+
+.bt-whitish {
+	border-top: 1px solid rgba(255, 255, 255, .7);
+}
+
+.bg-purple {
+	background-color: #30043d !important;
+}
+
+.text-larger {
+	font-size: 2.5rem !important;
+}
+
+.text-large {
+	font-size: 1.75rem !important;
+}
+
+.display-5 {
+	font-size: 2.5rem !important;
+	font-weight: 100 !important;
+}
+
+.btn-outline-light:hover {
+	color: #30043d !important;
+}
+
+.sharp-border {
+	border-radius: 0 !important;
+}
+
+.cursor-pointer {
+	cursor: pointer !important;
+}
+
+/*
+/ Radio button styling
+*/
+.radio {
+	display: none;
+}
+
+.radioBoxContainer {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  background-color: transparent;
+  border: 1px solid #f53240;
+  transition: background-color .4s;
+}
+
+.radioText {
+  color: #f53240;
+  display: block;
+}
+
+.radioBoxCircle {
+  display: none;
+  position: relative;
+  width: 15px;
+  height: 15px;
+  background-color: blue;
+  border-radius: 50%;
+}
+
+.radioBoxContainer:hover {
+  border-color: #7cdbd5;
+}
+
+.radioBoxContainer:hover .radioText {
+  color: #7cdbd5;
+}
+
+.radio:checked + label .radioBoxContainer {
+  border-color: #7cdbd5;
+}
+
+.radio:checked + label .radioBoxContainer .radioText {
+  color: #7cdbd5;
+}

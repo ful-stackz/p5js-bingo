@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bingo! Play online!</title>
+	<!-- <Game Javascript> -->
+		<script src="script/window.events.js"></script>
+		<script src="script/variables.js"></script>
+		<script src="script/helpers.js"></script>
+		<script src="script/objects.js"></script>
+		<script src="script/sketch.js"></script>
+		<script src="script/page.js"></script>
+	<!-- <p5.js Javascript> -->
+		<script src="script/p5.js"></script>
+		<script src="script/p5.dom.js"></script>
+	<!-- <Stylesheets> -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+		<link rel="stylesheet" href="style/style.css">
+	<!-- <Bootstrap Javascript> -->
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+</head>
+<body>
+	<div class="container">
+		
+		<div class="row text-center">
+
+			<!-- <Title> -->
+				<div class="col-12 bg-bright-coral text-white">
+					<h1 class="display-4">Bingo!</h1>
+				</div>
+			<!-- </Title> -->
+		</div>
+
+		<div class="row text-center text-white">
+			<!-- <TimeInfo> -->
+				<div class="col-6 bg-sky py-2 d-flex align-items-center">
+					<p id="timeInfo" class="lead m-0 text-large w-100"></p>
+				</div>
+			<!-- </TimeInfo> -->
+
+			<!-- <LastPickedNumber> -->
+				<div class="col-3 bg-golden py-2">
+					<p id="lastPick" class="lead text-larger m-0">-</p>
+				</div>
+			<!-- </LastPickedNumber> -->
+
+			<!-- <TotalPickedNumbers> -->
+				<div class="col-3 bg-aquamarine py-2">
+					<p id="totalPicks" class="lead text-larger m-0">1/20</p>
+				</div>
+			<!-- </TotalPickedNumbers> -->
+		</div>
+
+		<div class="row text-center text-white">
+			
+			<!-- <ControlsAndSettings> -->
+				<div id="controlsAndSettings" class="col-12 col-lg-3 py-2 bg-purple">
+					<div class="row text-center text-white">
+					
+					<!-- <Controls> -->
+						<div class="col-4 col-lg-12">
+						<h1 class="display-5">Controls</h1>
+						<hr class="bt-whitish" />
+
+						<button class="btn btn-outline-light btn-large w-100 sharp-border mb-3 cursor-pointer" onclick="StartGame();">
+							Play
+						</button>
+						<button class="btn btn-outline-light btn-large w-100 sharp-border mb-0 cursor-pointer" onclick="gameRunning = false; gameStopped = true;">
+							Stop
+						</button>
+						</div>
+
+					<!-- </Controls> -->
+
+					<br /><br />
+					
+					<!-- <Settings> -->
+						<h1 class="display-5">Settings</h1>
+						<hr class="bt-whitish" />
+
+						<!-- <TotalPicksSettings> -->
+							<p>How many total picks?</p>
+							<!-- Radio button 1 -->
+								<input type="radio" id="picksOption1" class="radio" name="picksOption" value="20" />
+								<label for="picksOption1">
+									<div class="radioBoxContainer cursor-pointer">
+										<span class="radioText">20</span>
+									</div>
+								</label>
+							<!-- Radio button 2 -->
+								<input type="radio" id="picksOption2" class="radio" name="picksOption" value="25" checked="true" />
+								<label for="picksOption2">
+									<div class="radioBoxContainer cursor-pointer">
+										<span class="radioText">25</span>
+									</div>
+								</label>
+							<!-- Radio button 3 -->
+								<input type="radio" id="picksOption3" class="radio" name="picksOption" value="30" />
+								<label for="picksOption3">
+									<div class="radioBoxContainer cursor-pointer">
+										<span class="radioText">30</span>
+									</div>
+								</label>
+						<!-- </TotalPicksSettings> -->
+
+						<!-- <PickingTimeSettings> -->
+							<p class="mt-2">How often to pick?</p>
+							<!-- Radio button 1 -->
+								<input type="radio" id="timeOption1" class="radio" name="timeOption" value="2.5" />
+								<label for="timeOption1">
+									<div class="radioBoxContainer cursor-pointer">
+										<span class="radioText">2.5</span>
+									</div>
+								</label>
+							<!-- Radio button 2 -->
+								<input type="radio" id="timeOption2" class="radio" name="timeOption" value="5" checked="true" />
+								<label for="timeOption2">
+									<div class="radioBoxContainer cursor-pointer">
+										<span class="radioText">5</span>
+									</div>
+								</label>
+							<!-- Radio button 3 -->
+								<input type="radio" id="timeOption3" class="radio" name="timeOption" value="7.5" />
+								<label for="timeOption3">
+									<div class="radioBoxContainer cursor-pointer">
+										<span class="radioText">7.5</span>
+									</div>
+								</label>
+						<!-- </PickingTimeSettings> -->
+
+					<!-- </Settings> -->
+
+
+					<!-- <Information> -->
+						<hr class="bt-whitish" />
+						<button class="btn btn-outline-light btn-large w-100 sharp-border mb-3 cursor-pointer" data-toggle="modal" data-target="#guideModal">
+							Guide
+						</button>
+						<button class="btn btn-outline-light btn-large w-100 sharp-border mb-2 cursor-pointer" data-toggle="modal" data-target="#creditsModal">
+							Credits
+						</button>
+					<!-- </Information> -->
+
+				</div>
+			<!-- </ControlsAndSettings> -->
+
+			<!-- <GameContainer> -->
+				<div id="canvasContainer" class="col-12 col-lg-6 p-0 bg-cool-gradient">
+					
+				</div>
+			<!-- </GameContainer> -->
+
+			<!-- <PickedNumbersList> -->
+				<div class="col-12 col-lg-3 bg-sky py-2">
+					<p id="pickedNumbers" class="lead text-larger m-0">
+						
+					</p>
+				</div>
+			<!-- </PickedNumbersList> -->
+		</div>
+
+	</div>
+
+	<!-- <Modals> -->
+		<!-- <GuideModal> -->
+		<div class="modal fade" id="guideModal" tabindex="-1" role="dialog" aria-labelledby="guideModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="guideModalLabel">How to play?</h5>
+		        <button type="button" class="close cursor-pointer" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        <h1 class="display-5">Basic</h1>
+		        <p class="lead text-muted">Load and play!</p>
+		        <p>
+		        	The best gameplay has been already chosen for you (every 5 seconds a number will be picked up to a maximum of 25 numbers). <b>Click</b> the <b>Play</b> button and <b>have fun</b>!
+		      	</p>
+		      	<h1 class="display-5">Advanced</h1>
+		        <p class="lead text-muted">Load and play!</p>
+		        <p>
+		        	If you don't enjoy the game with the default settings then you are free to pick any of the 3 options for each setting. Choose the maximum numbers picked by clicking on the squares with 20, 25 and 30 inside. You can also choose the time interval on which a number is being picked - all you have to do is click on one of the squares with 2.5, 5 and 7.5 inside. This will change the picking interval to 2.5, 5 or 7 seconds respectively. <b>Set</b> it, click the <b>Play</b> button and <b>have fun</b>!
+		      	</p>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary cursor-pointer" data-dismiss="modal">I got it!</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<!-- </GuideModal> -->
+
+		<!-- <CreditsModal> -->
+		<div class="modal fade" id="creditsModal" tabindex="-1" role="dialog" aria-labelledby="creditsModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="creditsModalLabel">Credits</h5>
+		        <button type="button" class="close cursor-pointer" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        Here comes the guide
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary cursor-pointer" data-dismiss="modal">I got it!</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<!-- </CreditsModal> -->
+	<!-- </Modals> -->
+</body>
+</html>
